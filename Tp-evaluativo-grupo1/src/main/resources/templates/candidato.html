@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head th:insert="/layouts/head::head">
+<head th:insert="/layout/head::head">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 
 <body>
+<!-- formulario de candidato -->
 <form th:action="@{/candidato/guardar}" th:object="${candidato}" method="post" class="row g-3" >
    <div class="col-md-6">
     <label for="codigo" class="form-label">CODIGO</label>
