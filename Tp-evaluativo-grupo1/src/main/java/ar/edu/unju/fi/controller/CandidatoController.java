@@ -20,11 +20,11 @@ public class CandidatoController {
 		return "candidato";
 	}
 
-	// devolucion de la aplicacion al cargar un nuevo curso
+	// devolucion de la aplicacion al cargar un nuevo curso.
 	@PostMapping("/candidato/guardar")
 	public String guardarCurso(@ModelAttribute("candidato") Candidato nuevoCandidato, Model model) {
 		listaCandidatos.setListaCandidatos(nuevoCandidato);
-		// mostramos la lista con todos los cursos
+		// mostramos la lista con todos los cursos.
 		return ("index");
 	}
 }
