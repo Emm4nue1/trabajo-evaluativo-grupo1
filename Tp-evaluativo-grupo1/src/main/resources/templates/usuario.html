@@ -6,17 +6,20 @@
 </head>
 <body>
 <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post" class="row g-3" >
+ 
   <div class="col-md-6">
     <label for="nombre" class="form-label">NOMBRE </label>
-    <input th:field="*{nombre}" type="text" class="form-control" id="nombre" >
+    <input th:field="*{nombre}" type="text" class="form-control" id="nombre" required>
   </div>
+
    <div class="col-md-6">
     <label for="email" class="form-label">E-MAIL</label>
-    <input th:field="*{email}" type="text" class="form-control" id="email" >
+    <input th:field="*{email}" type="text" class="form-control" id="email" required >
   </div>
    <div class="col-md-6">
+   
     <label for="nacimiento" class="form-label">FECHA DE NACIMIENTO</label>
-    <input th:field="*{nacimiento}" type="date" class="form-control" id="nacimiento" th:value="*{nacimiento}">
+    <input th:field="*{nacimiento}" type="date" class="form-control" id="nacimiento" th:value="*{nacimiento}" required>
   </div>
  
   <div class="col-12">

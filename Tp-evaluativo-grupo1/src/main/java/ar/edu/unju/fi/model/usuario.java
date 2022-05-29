@@ -2,9 +2,12 @@ package ar.edu.unju.fi.model;
 import java.time.LocalDate;
 import java.time.Period;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class usuario {
 	private String nombre;
 	private String email;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate nacimiento;
 	private int edad;
 	
