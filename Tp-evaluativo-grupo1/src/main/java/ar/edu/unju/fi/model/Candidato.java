@@ -1,15 +1,15 @@
 package ar.edu.unju.fi.model;
 
-public class candidato {	
+public class Candidato {	
 	private int codigo;
 	private String nombre;
 	private String genero;
 	private String descripcion;
 	private int votos;
 	
-	public candidato() {}
+	public Candidato() {}
 	
-	public candidato(int codigo, String nombre, String genero, String descripcion, int votos) {
+	public Candidato(int codigo, String nombre, String genero, String descripcion, int votos) {
 		super();
 		this.codigo=codigo;
 		this.nombre = nombre;
