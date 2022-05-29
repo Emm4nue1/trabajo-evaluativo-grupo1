@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<header th:insert="/layout/header::header"> </header>
     <div>
          <section>
           <h1>Lista de Concursantes</h1>
@@ -25,8 +26,8 @@
                 <td th:text="${candidato.genero}"></td>
                 <td th:text="${candidato.descripcion}"></td>
                 <td>
-                 <a th:href="@{/candidato/editar/}+${candidato.codigo}" id="editarConcursante" class="btn btn-warning">Editar</a>
-				 <a th:href="@{/candidato/eliminar/}+${candidato.codigo}" id="eliminarConcursante" class="btn btn-danger">Eliminar</a>
+                 <a th:href="@{/editar/}+${candidato.codigo}" id="editarConcursante" class="btn btn-warning">Editar</a>
+				 <a th:href="@{/eliminar/}+${candidato.codigo}" id="eliminarConcursante" class="btn btn-danger">Eliminar</a>
               	</td>
                </tr> 
             </tbody>
