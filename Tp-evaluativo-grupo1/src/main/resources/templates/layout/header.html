@@ -1,55 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head th:insert="/layouts/head::head">
-<meta charset="UTF-8">
-<!-- agregados para el funcionamiento de bootstrap-->
-<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-<script src="/webjars/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="/webjars/popper.js/umd/popper.min.js" type="text/javascript"></script>
-<script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-
+<head>
+<meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-
-
-	<header th:fragment="header">
-
-			<div class="card mb-3" style="max-width: 100%;">
-			  <div class="row g-0">
-			    <div class="col-md-4">
-			      <img alt="imagen1" src="/imagen/descarga.png" title="Facultad de Ingenieria" width="100" height="100">
-			    </div>
-			    <div class="col-md-8">
-			      <div class="card-body">
-			        <h1 class="card-title">Capacitaciones UNJU</h1>
-			      </div>
-			    </div>
-			  </div>
-			</div>	
-			<nav class="navbar navbar-expand-lg bg-light">
+<header th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index">Inicio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" th:href="@{/nuevo_usuario}">REGISTRATE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="agenda">Agenda</a>
+          <a class="nav-link active" aria-current="page" href="nuevo_usuario">otra opcion</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           CANDIDATOS 
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <li><a class="dropdown-item" th:href="@{/}">NUEVO CANDIDATO</a></li>
+             <li><a class="dropdown-item" th:href="@{/}">MODIFICAR O BORRAR</a></li>  
+            <li><hr class="dropdown-divider"></li>
+           <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> --> 
+          </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="beneficios">Beneficios y Becas</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contacto">Contáctanos</a>
-        </li>
-        </ul>
-      
+      </ul>
     </div>
   </div>
 </nav>
-	</header>
+</header>
 </body>
 </html>
-        

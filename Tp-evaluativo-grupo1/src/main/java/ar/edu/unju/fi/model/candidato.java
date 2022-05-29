@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.model;
 
 public class candidato {	
+	private int codigo;
 	private String nombre;
 	private String genero;
 	private String descripcion;
@@ -8,8 +9,9 @@ public class candidato {
 	
 	public candidato() {}
 	
-	public candidato(String nombre, String genero, String descripcion, int votos) {
+	public candidato(int codigo, String nombre, String genero, String descripcion, int votos) {
 		super();
+		this.codigo=codigo;
 		this.nombre = nombre;
 		this.genero = genero;
 		this.descripcion = descripcion;
@@ -47,5 +49,20 @@ public class candidato {
 	public void setVotos(int votos) {
 		this.votos = votos;
 	}
+
+	/**
+	 * @return the codigo
+	 */
+	public int getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param codigo the codigo to set
+	 */
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 		
+	
 }

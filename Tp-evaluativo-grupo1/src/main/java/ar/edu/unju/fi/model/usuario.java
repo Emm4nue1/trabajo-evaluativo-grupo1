@@ -6,6 +6,7 @@ public class usuario {
 	private String nombre;
 	private String email;
 	private LocalDate nacimiento;
+	private int edad;
 	
 	public usuario() {}
 	
@@ -45,4 +46,20 @@ public class usuario {
 		Period edad = Period.between(this.getNacimiento(), LocalDate.now());
 		       return edad.getYears();
 	}
+
+	/**
+	 * @return the edad
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+	/**
+	 * @param edad the edad to set
+	 */
+	public void setEdad(int edad) {
+		this.edad = calcularEdad();
+	}
+	
+	
 }
