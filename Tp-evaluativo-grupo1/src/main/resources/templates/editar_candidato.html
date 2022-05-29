@@ -9,10 +9,10 @@
 	<br>
 	<p class="h4">Edición Candidato</p>
 	<br>
-<form th:action="@{/candidato/modificar}" th:object="${candidato}" method="post">
+<form th:action="@{/modificar}" th:object="${candidato}" method="post">
   <div class="mb-3">
     <div class="mb-3">
-    <input th:field="*{codigo}"  type="hidden" class="form-control" id="codigo" >
+    <input th:field="*{codigo}"  type="hidden">
     <label for="codigo" class="form-label">CODIGO</label>
     <input  th:value="${codigo}" type="number" class="form-control" id="codigo" disabled="disabled">
   </div>

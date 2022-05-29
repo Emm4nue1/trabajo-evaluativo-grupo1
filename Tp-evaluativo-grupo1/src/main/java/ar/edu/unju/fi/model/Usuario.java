@@ -4,16 +4,16 @@ import java.time.Period;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class usuario {
+public class Usuario {
 	private String nombre;
 	private String email;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate nacimiento;
 	private int edad;
 	
-	public usuario() {}
+	public Usuario() {}
 	
-	public usuario(String nombre, String email, LocalDate nacimiento) {
+	public Usuario(String nombre, String email, LocalDate nacimiento) {
 		super();
 		this.nombre = nombre;
 		this.email = email;

@@ -2,17 +2,17 @@ package ar.edu.unju.fi.listas;
 
 import java.util.ArrayList;
 import java.util.List;
-import ar.edu.unju.fi.model.usuario;
-//Creacion de lista de usuario
+import ar.edu.unju.fi.model.Usuario;
+//Creacion de lista de Usuario
 public class ListaUsuarios {
-	List <usuario> listaUsuario = new ArrayList<>();
+	List <Usuario> listaUsuario = new ArrayList<>();
 
-	public List<usuario> getListaUsuario() {
+	public List<Usuario> getListaUsuario() {
 		return listaUsuario;
 	}
 
-	public void setListaUsuario(List<usuario> listaUsuario) {
-		this.listaUsuario = listaUsuario;
+	public void setListaUsuario(Usuario usuario) {
+		listaUsuario.add(usuario);
 	}
 	
 }
