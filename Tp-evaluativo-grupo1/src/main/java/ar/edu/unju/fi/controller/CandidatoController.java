@@ -1,18 +1,19 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import ar.edu.unju.fi.listas.ListaCandidatos;
 import ar.edu.unju.fi.model.Candidato;
+import ar.edu.unju.fi.service.ICandidatoService;
 
 @Controller
 public class CandidatoController {
-	ListaCandidatos listaCandidatos = new ListaCandidatos();
-
+@Autowired
+private ICandidatoService candidatoService;
 	Candidato nuevoCandidato = new Candidato();
 
 	@GetMapping("/NuevoCan")
@@ -24,14 +25,14 @@ public class CandidatoController {
 	// devolucion de la aplicacion al cargar un nuevo curso.
 	@PostMapping("/candidato/guardar")
 	public String guardarCurso(@ModelAttribute("candidato") Candidato nuevoCandidato, Model model) {
-		listaCandidatos.setListaCandidatos(nuevoCandidato);
+		candidatoService.registrar(nuevoCandidato);
 		// mostramos la lista con todos los cursos.
 		return ("index");
 	}
 	//devuelve una tabla que muestra los candidatos para seleccionar el que se desea modificar
 		@GetMapping("/Modificacion")
 		public String getListaCandidatos(Model model) {
-			model.addAttribute("candidatos", listaCandidatos.getListaCandidatos());
+			model.addAttribute("candidatos", candidatoService.obtenerLista());
 			return "lista_candidatos";
 		}
 		//respuesta a la solicitud modificar candidato
@@ -39,7 +40,7 @@ public class CandidatoController {
 		public String getEditarCand(@PathVariable(value="codigo")int codigo,Model model) {
 			Candidato uncandid= new Candidato() ;
 			//busco el objeto seleccionado para modificar en la lista de candidatos
-			for(Candidato t : listaCandidatos.getListaCandidatos()) {
+			for(Candidato t : candidatoService.obtenerLista()) {
 				if(t.getCodigo()==codigo) {
 					uncandid=t;
 				}
@@ -52,7 +53,7 @@ public class CandidatoController {
 		@PostMapping("/modificar")
 		public String guardarCandidatoEditar(@ModelAttribute("candidato") Candidato nuevoCandid, Model model) {
 			//busco el objeto seleccionado para modificar en la lista de candidatos
-			for(Candidato t : listaCandidatos.getListaCandidatos()) {
+			for(Candidato t : candidatoService.obtenerLista()) {
 				if(t.getCodigo()==nuevoCandid.getCodigo()) {
 					t.setDescripcion(nuevoCandid.getDescripcion());
 					t.setGenero(nuevoCandid.getGenero());
@@ -60,7 +61,7 @@ public class CandidatoController {
 				}
 			}
 			//pasamos el objeto para que sea mosytado en la trabla
-			model.addAttribute("candidatos", listaCandidatos.getListaCandidatos());
+			model.addAttribute("candidatos", candidatoService.obtenerLista());
 			// mostramos la lista con todos los cursos.
 			return ("index");
 		}
@@ -68,6 +69,11 @@ public class CandidatoController {
 		@GetMapping("/eliminar/{codigo}")
 		public String getEliminarCand(@PathVariable(value="codigo")int codigo,Model model) {
 			//busco el objeto seleccionado para modificar en la lista de candidatos
+
+			for(Candidato t : candidatoService.obtenerLista()) {
+				if(t.getCodigo()==codigo) {
+					candidatoService.eliminarCandidato();
+
 			int cont,cambio;
 			cont=0;
 			cambio=0;
@@ -78,6 +84,7 @@ public class CandidatoController {
 					
 					cambio=cont;
 					
+
 				}
 			}
 		listaCandidatos.getListaCandidatos().remove(cambio);
