@@ -69,11 +69,34 @@ private ICandidatoService candidatoService;
 		@GetMapping("/eliminar/{codigo}")
 		public String getEliminarCand(@PathVariable(value="codigo")int codigo,Model model) {
 			//busco el objeto seleccionado para modificar en la lista de candidatos
+
 			for(Candidato t : candidatoService.obtenerLista()) {
 				if(t.getCodigo()==codigo) {
 					candidatoService.eliminarCandidato();
+
+			int cont,cambio;
+			cont=0;
+			cambio=0;
+			for(Candidato t : listaCandidatos.getListaCandidatos()) {
+				cont++;
+				
+				if(t.getCodigo()==codigo) {
+					
+					cambio=cont;
+					
+
 				}
 			}
+		listaCandidatos.getListaCandidatos().remove(cambio);
+		cambio=0;
+		/*for (int i= listaCandidatos.getListaCandidatos().size(); i>=0;i--) {
+				if(listaCandidatos.getListaCandidatos(i.)) {
+					lista.remove(i);
+					}
+			}
+			*/
+			
+			
 			// mostramos la lista con todos los cursos.
 			return "index";
 		}
