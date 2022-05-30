@@ -2,8 +2,12 @@ package ar.edu.unju.fi.listas;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
+
 import ar.edu.unju.fi.model.Candidato;
 //creacion de lista
+@Component
 public class ListaCandidatos {
 	List <Candidato> listaCandidatos = new ArrayList<>();
 	
@@ -17,12 +21,9 @@ public class ListaCandidatos {
 	public List<Candidato> getListaCandidatos() {
 		return listaCandidatos;
 	}
-	/**
-	 * Guarda un candadidato en una lista de candidatos.
-	 * @param nuevoCandidato
-	 */
-	public void setListaCandidatos(Candidato nuevoCandidato) {
-		listaCandidatos.add(nuevoCandidato);
+
+	public void setListaCandidatos(List<Candidato> listaCandidatos) {
+		this.listaCandidatos = listaCandidatos;
 	}
-	
+
 }
