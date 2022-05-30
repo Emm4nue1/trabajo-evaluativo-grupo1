@@ -7,12 +7,15 @@ import ar.edu.unju.fi.model.Candidato;
 public class ListaCandidatos {
 	List <Candidato> listaCandidatos = new ArrayList<>();
 	
-	public ListaCandidatos() {}
+	public ListaCandidatos() {
+		listaCandidatos.add(new Candidato(000,"ninguno","---","---",0));
+	}
 	
 	public ListaCandidatos(List<Candidato> listaCandidatos) {
 		super();
 		this.listaCandidatos = listaCandidatos;
 	}
+	
 
 	public List<Candidato> getListaCandidatos() {
 		return listaCandidatos;
